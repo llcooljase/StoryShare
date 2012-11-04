@@ -1,0 +1,6 @@
+if not DEBUG:
+    STATIC_URL = 'https://breakin.s3.amazonaws.com/'
+
+AWS_ACCESS_KEY_ID = 'AKIAIRW3O76E5AN7CHFA'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'breakin'

@@ -1,0 +1,111 @@
+<head>
+{% include "css_and_scripts.html" %}
+<script>
+    (function($){
+        $(window).load(function(){
+            $(".right").mCustomScrollbar();
+        });
+    })(jQuery);
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+        wH = $(window).height()-40;
+        wA = wH-105; wB = wA - 155;
+        if (wH < 640) {$('.feeds').css({"height": 555});}
+        else {$('.feeds').css({"height": wA});}
+        $('#all').css({"height": wH});
+        });
+        
+$(window).resize(function(){
+        wH = $(window).height()-40;
+        wA = wH-105; wB = wA - 155;
+        if (wH < 640) {$('.feeds').css({"height": 555});}
+        else {$('.feeds').css({"height": wA});}
+        });
+</script>
+<title>News Fetcher!</title>
+</head>
+{% autoescape off %}
+<body>
+    <!-- Navbar -->
+   <div class="navbar navbar-fixed-top" style="background:#000;">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse">
+            <ul class="nav">                                                        
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+<section id="body">
+    <section id="nf">
+        <section id="all">
+
+{% include "left_nav.html" %}
+    <article class="filter t a">
+        <div class="select t select_l" c="0" a="4"><img src="images/nf/ted.jpg" /></div>
+        <div class="select t" c="0" a="2"><img src="images/nf/tc.png" /></div>
+        <div class="select t" c="0" a="1"><img src="images/nf/hn.png" /></div>
+        <div class="select t" c="0" a="3"><img src="images/nf/ma.png" /></div>
+        <div class="select t" c="0" a="5"><img src="images/nf/fco.jpg" /></div>
+        <div class="select t" c="0" a="6"><img src="images/nf/smashing-logo.png" /></div>
+    </article>
+    <script>
+    $(".filter").hover(
+    function(){$(this).css({"height": 200});$(this).next().next().css("height", wB);$(this).next().next().css("top", 240);},
+    function(){$(this).css({"height": 45});$(this).next().next().css("height", wA);$(this).next().next().css("top", 85);}
+    )
+
+    $(".select").click(function(){
+    var co = $(this).attr("c");
+    if (co == 0) {
+        $(this).css({"background": "black"}).attr('c', '1');
+        var from = $(this).attr('a');
+        if (from == 1) $(".1").css({"display": "none"});
+        else if (from == 2) $(".2").css({"display": "none"});
+        else if (from == 3) $(".3").css({"display": "none"});
+        else if (from == 4) $(".4").css({"display": "none"});
+        else if (from == 5) $(".5").css({"display": "none"});
+        else $(".6").css({"display": "none"});
+        
+        }
+    else {
+        $(this).css({"background": "#e4e4e4"}).attr('c', '0');
+        var from = $(this).attr('a');
+        if (from == 1) $(".1").css({"display": "block"});
+        else if (from == 2) $(".2").css({"display": "block"});
+        else if (from == 3) $(".3").css({"display": "block"});
+        else if (from == 4) $(".4").css({"display": "block"});
+        else if (from == 5) $(".5").css({"display": "block"});
+        else $(".6").css({"display": "block"});
+        }
+    })
+    </script>
+ 
+  <article class="feeds t">
+    {% for feed in all_feeds %}
+    <div class="item {{ feed.number }} t"><span class="pic"><img src="images/nf/{{ feed.iconpic }}" /></span><a href="{{ feed.link }}"><span class="title bold">{{ feed.title }}</span></a>
+        <span class="post"><form id="save-form" method="post" action="/newssave/">  {% csrf_token %}
+    <input id="id_url" type="hidden" name="url" value="{{ feed.link }}"/><input id="id_title" type="hidden" name="title" value="{{ feed.title }}" /><input id="id_subtitle" type="hidden" name="subtitle" value="Fetched from News Feed." /><input type="hidden" name="type" id="id_type" value="2" /><input id="id_tags" type="hidden" name="tags" value="" /><input style="height:25px; width:100px; position:relative; left:100px; top:-14px; -webkit-border-radius:8px; background:#E4E4E4; display:block" type="submit" value="Post to Board"/>
+</form></span></div>
+    {% endfor %}
+
+    
+    
+    </article>
+<!---------->
+</section>
+</section>
+</section>
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg");
+  <![endif]-->
+
+<!--- analytics -->
+</body>
+{% endautoescape %}
+</html>

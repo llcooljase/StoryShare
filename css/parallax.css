@@ -1,0 +1,33 @@
+/**
+ * Parallax Scrolling Tutorial
+ * For Smashing Magazine
+ * July 2011
+ *  
+ * Author: Richard Shepherd
+ *		   www.richardshepherd.com
+ * 		   @richardshepherd   
+ */
+
+.story { height: 1000px; padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.3); border-bottom: 1px solid rgba(0,0,0,0.4); box-shadow: 0 0 50px rgba(0,0,0,0.8);}
+
+.story2 { height: 2000px; padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.3); border-bottom: 1px solid rgba(0,0,0,0.4); box-shadow: 0 0 50px rgba(0,0,0,0.8);}
+
+#first { background: #65c5ff }
+#second { background: #FF5FAA }
+#third { background: #0F5/*url(../images/slide4.jpg) 50% 0 no-repeat fixed;*/ }
+#fourth { background: #FFA}
+#fifth { background:#7F5FFF;}
+#sixth { background: #D41FAA;}
+
+/* Introduction */
+#first article { width: 100%; top: 100px; position: absolute; text-align: center; }
+#first article p,
+#first article a { color: #444; }
+#first article a:hover { color: #fff; }
+
+/* Background Only */
+#second { padding: 50px 0; position:absolute;}
+/*#second article { width: 100%; } */
+#second article p { margin-bottom: 25px; }
+
+

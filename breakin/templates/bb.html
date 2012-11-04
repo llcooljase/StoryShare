@@ -1,0 +1,203 @@
+<head>
+{% include "css_and_scripts.html" %}
+<title>Bulletin Board</title>
+</head>
+
+   <div class="navbar navbar-fixed-top" style="background:#000">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse">
+            <ul class="nav">
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+<body>
+
+<!--BB-->
+<section id="body"><section id="bb"><section id="all">
+{% include "left_nav.html" %}
+    <article class="post a">
+        <div class="put2">
+            <div class="p_article t p1" style="width:100%;"><div class="p_icon t"></div><div class="p_text bold">Post a Story</div></div>
+        </div>
+    </article>
+    <article class="popup1 t" type="1">
+        <span class="x"></span>
+        <script>
+$('html').ajaxSend(function(event, xhr, settings) {
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+        // Only send the token to relative URLs i.e. locally.
+        xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+    }
+});
+    
+    </script>
+    <form id="save-form" method="post" action="/save/">  {% csrf_token %}
+    <p><label for="id_url">URL (required):</label> <input id="id_url" type="text" name="url" size="64" /></p>
+<p><label for="id_title">Title (required):</label> <input id="id_title" type="text" name="title" size="64" /></p>
+<p><label for="id_subtitle">Subtitle (required):</label> <input id="id_subtitle" type="text" name="subtitle" size="64" /></p> 
+<input type="hidden" name="type" id="id_type" value="1" /></p>
+    <input type="submit" value="save"/>
+</form>
+    </article>
+    <article class="popup2 t" type="2">
+        <span class="x"></span>
+        <script>
+$('html').ajaxSend(function(event, xhr, settings) {
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+        // Only send the token to relative URLs i.e. locally.
+        xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+    }
+});
+    
+    </script>
+    <form id="save-form" method="post" action="/save/">  {% csrf_token %}
+    <p><label for="id_url">URL (required):</label> <input id="id_url" type="text" name="url" size="64" /></p>
+<p><label for="id_title">Title (required):</label> <input id="id_title" type="text" name="title" size="64" /></p>
+<p><label for="id_subtitle">Subtitle (required):</label> <input id="id_subtitle" type="text" name="subtitle" size="64" /></p> 
+<input type="hidden" name="type" id="id_type" value="2" /></p>
+<!--p><label for="id_tags">Tags: (optional)</label> <input id="id_tags" type="text" name="tags" size="64" /></p>
+<!--p><label for="id_picture">Picture: (optional)</label> <input type="file" name="picture" id="id_picture" /></p-->
+    <input type="submit" value="save"/>
+</form>
+    </article>
+    <article class="popup3 t" type="3">
+        <span class="x"></span>
+        <script>
+$('html').ajaxSend(function(event, xhr, settings) {
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+        // Only send the token to relative URLs i.e. locally.
+        xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+    }
+});
+    
+    </script>
+    <form id="save-form" method="post" action="/save/">  {% csrf_token %}
+    <p><label for="id_url">(optional) URL (required):</label> <input id="id_url" type="text" name="url" size="64" /></p>
+<p><label for="id_title">Title (required):</label> <input id="id_title" type="text" name="title" size="64" /></p>
+<p><label for="id_subtitle">Subtitle (required):</label> <input id="id_subtitle" type="text" name="subtitle" size="64" /></p> 
+<input type="hidden" name="type" id="id_type" value="3" /></p>
+    <input type="submit" value="save"/>
+</form>
+    </article>
+    <article class="school">
+        <div class="school_name">
+            <div class="school_name1">
+                <div class="school_name2 bold">Board
+                </div>
+           </div>
+         </div> 
+        <div class="school_logo"></div>
+    </article>
+ 
+    <article class="right_big t"><article class="right">
+    
+    {% if bookmarks %}    
+            {% for bookmark in bookmarks %}
+                {% if bookmark.type == 1 %}
+                <div class="bbb p11">
+                <span class="author bold">
+                <span class="icon_chain"></span></span>
+                {% elif bookmark.type == 2 %}
+                <div class="bbb p13">
+                <span class="author bold">
+                <span class="icon_keyboard"></span></span>
+                {% else %}
+                <div class="bbb p15">
+                <span class="author bold">
+                <span class="icon_chat"></span></span>
+                {% endif %}
+            <div class="notauthor">
+                {% if bookmark.picture %}
+                <span class="pic">PICTURE/></span>
+                {% endif %}
+            <div class="notpic">
+                {% if bookmark.link.url %}
+                <a href="{{ bookmark.link.url }}"><span class="title bold">{{ bookmark.title }}</span></a>
+                {% else %}
+                <span class="title bold">{{ bookmark.title }}</span>
+                {% endif %}
+                <span class="desc">{{ bookmark.subtitle }}</span>
+                </span><!--span class="button_r t">Vote Up</span--></div></div></div>
+                {% endfor %}
+        </article></article>
+<!---------->
+</section>
+</section>
+</section>
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg");
+  <![endif]-->
+
+<!--- analytics -->
+    {% else %}
+    
+    <div class="bbb p15">
+    <span class="author bold">no one :/<span class="icon_chat"></span></span>
+    <div class="notauthor">
+        <div class="notpic"><span class="title bold">No bookmarks dog.</span><span class="desc"></span></div></div></div>
+    
+    </article></article>
+<!---------->
+</section>
+</section>
+</section>
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg");
+  <![endif]-->
+
+<!--- analytics -->
+    {% endif %}
+
+</body>
+</html>

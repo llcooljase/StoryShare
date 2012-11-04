@@ -1,0 +1,122 @@
+a img, a { border:none; outline:none } 
+
+.login {
+	background-color:#8ec1e0;
+	height:340px;
+	width:310px;
+	margin-left:40px;
+	float:right;
+	position:relative;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+}
+
+.text {
+	background-color:#8ec1e0;
+	height:340px;
+	width:566px;
+	float:left;
+	position:relative;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+}
+
+.info {
+	position:absolute;
+	height: 220px;
+	width:546px;
+	top:10px;
+	left:10px;
+	background-color:#CCF;
+}
+	
+.schools, .investors {
+	position:absolute;
+	height: 89px;
+	width:268px;
+	bottom:10px;
+	background-color: #CCF;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.schools {
+	left:10px;
+}
+
+.investors {
+	right:10px;
+}
+.loginbox, .signup {
+	position:absolute;
+	width:290px;
+	left:10px;
+}
+.loginbox {
+	height: 219px;
+	top:10px;
+	background-color:#CCF;
+	background:url(../images/login.jpg);
+}
+
+.signup {
+	height: 89px;
+	bottom:10px;
+}
+
+.forinvestors {
+	background-color:#FF5F55;
+	height:340px;
+	width:566px;
+	float:left;
+	position:relative;
+}
+
+.forstartups {
+}
+
+.block {
+	display:block;
+	height:65px;
+	width:65px;
+	float:left;
+	background-color:#FFF;
+}
+
+.signupbtn {
+	font-size:24px;
+	margin-top:20px;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.faded {
+	color: #333333;
+}
+
+input.username, input.password {
+	width:260px;
+	position:absolute;
+	left:10px;
+	opacity:0.8;
+}
+
+input.username {
+	top:10px;
+}
+
+input.password {
+	top:45px;
+	width:200px;}
+	
+	.splash, .splash2 {
+  height:340px;
+  padding: 40px;
+  font-family:'Merriweather', Arial;
+   box-shadow: 0px 0px 90px rgba(255, 255, 255, 0.6);
+  -moz-box-shadow: 0px 0px 90px rgba(255, 255, 255, 0.6);
+  -webkit-box-shadow: 0px 0px 90px rgba(255, 255, 255, 0.6);
+}
